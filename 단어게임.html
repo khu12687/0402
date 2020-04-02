@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+#wrapper{
+    width: 300px;
+    height: 400px;
+    border: 5px solid red;
+    margin: auto;
+}
+#wordArea{
+    font-size: 45pt;
+    text-align: center; /*글씨 가운데로*/
+    height: 100px;
+    background-color: yellow;
+    font-weight: bold; /*글씨 두껍게*/
+}
+#t_input{
+    width: 98%;
+    height: 50px;
+    background-color: lightyellow;
+    font-size: 25pt;
+    text-align: center;
+}
+#feedBackArea{
+    width: 100%;
+    height: 150px;
+    font-size: 100pt;
+    text-align: center; 
+    background-color: greenyellow;
+}
+#sorceArea{
+    width: 100%;
+    height: 100px;
+    font-size: 35pt;
+    text-align: center;
+}
+</style>
+<script>
+var wordArea;
+var t_input;
+var feedBackArea;
+var sorceArea;
+var index=0; //배열의 index
+var score=0; //프로그램이 가동될 동안 누적되어야하므로 전역변수선언
+
+//다음단어를 구현하려면, 데이터는 반드시 순서있게 올려야한다
+var word=new Array(10);
+word[0]="하이";
+word[1]="안녕";
+word[2]="그래";
+word[3]="참";
+word[4]="많은";
+word[5]="시간이";
+word[6]="흘러";
+word[7]="가고";
+word[8]="넌";
+word[9]="어떻게";
+
+addEventListener("load",function(){
+    wordArea = document.getElementById("wordArea");
+    t_input = document.getElementById("t_input");
+    feedBackArea = document.getElementById("feedBackArea");
+    sorceArea = document.getElementById("sorceArea");
+
+    //키보드 이벤트 헨들러 구현!!
+    //e 객체에 사용자가 행위한 키보드에 대한 정보가 들어있다.
+    //따라서 이 객체로 부터 아스키코드를 추출해보자!!
+    t_input.addEventListener("keyup",function(e){ //keyup 누르고 때면 발동 keydown 누르면발동
+        if(e.keyCode==13){
+            //입력한 단어와 따라칠 단어가 같은 경우에만 아래코드 수행
+            if(t_input.value==wordArea.innerText){
+                index++;
+                printWord();
+                //입력한 단어 다시 초기화!!(화면에서 없애기)
+                feedBackArea.innerText="O";
+                score +=10;
+                printScore();
+            }else{
+                feedBackArea.innerText="X";
+            }
+            this.value=""; //keyup을 일으킨 주체 즉 텍스트박스
+        }
+    }); 
+    // 기본적으로 출력된 단어 처리..
+    printWord();
+    printScore();
+});
+function printScore(){
+    scoreArea.innerText=score+"점";
+}
+    //단어 출력!! 사용자가 따라칠 단어 출력하기!!
+function printWord(){
+    wordArea.innerText=word[index];
+}
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="wordArea">광화문</div>
+        <input id="t_input" type="text" placeholder="여기에 단어입력"/>
+        <div id="feedBackArea">x</div>
+        <div id="scoreArea"></div>
+    </div>
+</body>
+</html>

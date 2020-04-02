@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+/*배열이란
+    1) 사물을 늘어서게 나열한 상ㅌ태!!
+        전산에서는 사물 대신 데이터를 메모리에 순서있게 올려놓으면됨
+        변수명을 부여하지 않고도 데이터를 접근 할 수있다!!
+*/
+
+var x=1;
+var y=2;
+//배열을 이용할 경우
+// var arr=new Array(2); //배열 명시적 선언!!
+// arr[0]=1;
+// arr[1]=2;
+// for(var i=0; i<2; i++){
+//     document.write(arr[i]+"<br>");
+// }
+
+// 크기가 10인배열 각 1~10까지 넣기
+// var arr = new Array(10);
+// for(var i=0; i<arr.length; i++){
+//     arr[i]=i+1;
+//     document.write(arr[i]+"<br>");
+// }
+
+//크기가 20인 배열 10번쨰까지는 0 그다음부터는1 대입
+var arr = new Array(20);
+for(var i=0; i<arr.length; i++){
+    arr[i]=0;
+    if(i>9){
+        arr[i]=1;
+    }
+    document.write(arr[i]+"<br>");
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

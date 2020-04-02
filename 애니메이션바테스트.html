@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+var menu;
+var targetH=500;
+var a=0.1;
+addEventListener("load",function(){
+    createMenu();
+    setInterval("move()",10);
+});
+function createMenu(){
+    menu = document.createElement("div");
+    menu.style.width=100+"px";
+    menu.style.height=50+"px";
+    menu.style.background="yellow";
+    menu.style.margin="auto";
+    document.body.appendChild(menu);
+
+    menu.addEventListener("mouseover",function(){
+        targetH=500;
+    });
+    
+    menu.addEventListener("mouseout",function(){
+        targetH=50;
+    });
+}
+function move(){
+    menu.style.height = parseFloat(menu.style.height) +a*(targetH- parseFloat(menu.style.height))+"px";
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

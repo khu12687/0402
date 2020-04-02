@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#container{
+    width: 502px;
+    height: 502px;
+    background-image:url("../images/food1.jpg");
+    margin: auto;
+    position: relative;
+}
+</style>
+<script>
+var a=0;
+var box;
+var container;
+addEventListener("load",function(){
+    for(var i=0; i<10; i++){
+        for(var j=0; j<10; j++){
+        box = document.createElement("div");
+        box.style.width=50+"px";
+        box.style.height=50+"px";
+        box.style.background="red";
+        box.style.position="absolute";
+        box.style.left=i*50+"px";
+        box.style.border="1px solid blue";
+        box.style.top=j*50+"px";
+        container = document.getElementById("container");
+        container.appendChild(box);
+        box.addEventListener("click",function(){
+            this.style.opacity=a;
+        });
+        }
+    }
+});
+btn.addEventListener("click",function(){
+    var container = document.getElementById("container");
+    container.background="../images/food1.jpg";
+    container.position="absolute";
+});
+</script>
+</head>
+<body>
+    <button id="btn">정답보기</button>
+    <div id="container"></div>
+</body>
+</html>
