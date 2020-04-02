@@ -13,6 +13,7 @@
     position: relative;
 }
 </style>
+<script src="../js/lib.js"></script>
 <script>
 var container;
 addEventListener("load",function(){
@@ -32,11 +33,26 @@ function createRect(){
         div.style.width =28+"px";
         div.style.height=28+"px";
         div.style.border="1px solid red";
-        div.style.background="yellow";
+        var rand = getRandom(1,5);
+        if(rand == 1){
+            div.style.background="yellow";
+        }
+        else if(rand == 2){
+            div.style.background="red";
+        }
+        else if(rand == 3){
+            div.style.background="green";
+        }
+        else if(rand == 4){
+            div.style.background="blue";
+        }
+        else{
+            div.style.background="black";
+        }
         div.style.position="absolute";
         div.style.left=(i*30)+"px";
         div.style.top=(a*30)+"px";
-        div.style.opacity=0.7;
+        div.style.opacity=0.3;
 
         container.appendChild(div);
         // div에 이벤트 핸들러 구현
